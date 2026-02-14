@@ -6,6 +6,8 @@ EasyLeaderboards allows you to effortlessly create leaderboards, add scores to t
 With the included functions, you can add, edit, or delete scores, get all of the scores in a leaderboard, create new leaderboards, delete leaderboards, and check if a leaderboard exists. 
 With the custom node, you just add it to the scene and set scores when you receive them. The BaseLeaderboard node is customizable to have different themes, colors, headers, and max scores to display.
 
+
+# How to use:
 There is a demo scene in the files, but here is how you do it yourself:
 
 To get started download the asset and enable it, then go to either adpgames.com/leaderboards or themaker6.pythonanywhere.com/leaderboards and create your first leaderboard, or run Leaderboard.create_leaderboard(nameOfLeaderboard) replacing "nameOfLeaderboard" with the name as a string. There is a optional parameter for this function: "direction". 
