@@ -1,0 +1,76 @@
+[gd_resource type="Theme" format=3 uid="uid://cctkeakyc7bn6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3x83g"]
+bg_color = Color(0, 0.39215687, 0.39215687, 1)
+border_width_bottom = 10
+border_color = Color(0, 0, 0.5019608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hveji"]
+bg_color = Color(0, 0.5882353, 0.5882353, 1)
+border_width_bottom = 10
+border_color = Color(0, 0, 0.5019608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkae4"]
+bg_color = Color(0, 0.5882353, 0.5882353, 1)
+border_width_top = 10
+border_color = Color(0, 0, 0.5019608, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvgl3"]
+bg_color = Color(0, 0.5019608, 0.5019608, 1)
+border_width_bottom = 10
+border_color = Color(0, 0, 0.5019608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5uist"]
+bg_color = Color(0, 0.5019608, 0.5019608, 1)
+border_width_top = 10
+border_color = Color(0, 0, 0.5019608, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hu0fm"]
+bg_color = Color(0, 0.5019608, 0.5019608, 1)
+border_width_left = 10
+border_color = Color(0, 0.5019608, 0.5019608, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Gradient" id="Gradient_3x83g"]
+colors = PackedColorArray(0, 0, 0.5019608, 1, 0, 0.50003004, 0.50002974, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hveji"]
+gradient = SubResource("Gradient_3x83g")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kkae4"]
+texture = SubResource("GradientTexture2D_hveji")
+
+[resource]
+Button/font_sizes/font_size = 20
+Button/styles/disabled = SubResource("StyleBoxFlat_3x83g")
+Button/styles/hover = SubResource("StyleBoxFlat_hveji")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_kkae4")
+Button/styles/normal = SubResource("StyleBoxFlat_hvgl3")
+Button/styles/pressed = SubResource("StyleBoxFlat_5uist")
+Label/font_sizes/font_size = 35
+LineEdit/styles/normal = SubResource("StyleBoxFlat_hu0fm")
+Panel/styles/panel = SubResource("StyleBoxTexture_kkae4")
