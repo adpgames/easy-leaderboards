@@ -36,8 +36,8 @@ func _ready() -> void:
 	#id of it.
 	Leaderboard.set_leaderboard(LeaderboardName)
 	
-	#When data is recieved, call the function "recieved_data"
-	Leaderboard.recieved_data.connect(recieved_data)
+	#When data is recieved, call the function "received_data"
+	Leaderboard.received_data.connect(received_data)
 	
 	#Because we have the function "recived_data" setup to 
 	#update the leaderboard if the data is a list of scores,
@@ -45,7 +45,7 @@ func _ready() -> void:
 	#leaderboard according to the scores.
 	Leaderboard.get_scores()
 
-func recieved_data(data):
+func received_data(data):
 	if "Scores" in data: #This means that it is a list of scores
 		#Put the scores onto the leaderboard.
 		$BaseLeaderboard.scores = data["Scores"]
@@ -59,7 +59,8 @@ func recieved_data(data):
 func _on_add_score_pressed() -> void:
 	#This adds a score to the leaderboard with the name being one
 	#of the line edits, and the score being the other.
-	Leaderboard.add_score($Buttons/Name.text, $Buttons/Score.text)
+	Leaderboard.add_score($Buttons/Name.text, $Buttons/Score.text,
+	$Buttons/MetaData.text)
 
 
 func _on_edit_pressed() -> void:
@@ -111,6 +112,6 @@ func _on_check_pressed() -> void:
 func _on_update_pressed() -> void:
 	#This will get all scores in the set leaderboard, and because 
 	#the function connected to the signal 
-	#"Leaderboard.recieved_data" is setup to put the scores onto 
+	#"Leaderboard.received_data" is setup to put the scores onto 
 	#the visible leaderboard, this will also update the leaderboard.
 	Leaderboard.get_scores()
