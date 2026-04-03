@@ -9,9 +9,9 @@ extends Control
 func _ready() -> void:
 	Leaderboard.set_leaderboard("Demo") #Set the leaderboard to "Demo"
 	Leaderboard.get_scores() #Get the scores
-	Leaderboard.recieved_data.connect(recieved_data)
+	Leaderboard.received_data.connect(received_data)
 
-func recieved_data(data):
+func received_data(data):
 	#Delete all scores so they don't get duplicated
 	for score in $Leaderboard/ScrollContainer/VBoxContainer.get_children():
 		if score.name != "Space":

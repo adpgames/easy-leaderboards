@@ -1,7 +1,7 @@
 extends Control
 #Created by Asher Petersen for Godot.
 
-signal recieved_data(data) #Signal for when data is recieved
+signal received_data(data) #Signal for when data is recieved
 var leaderboard = null #Variable for the set leaderboard
 
 var error_message = "No leaderboard set. Use Leaderboard.set_leaderboard(NameOrId), replacing NameOrId with the name of the leaderboard or id of the leaderboard."
@@ -34,11 +34,12 @@ func get_scores():
 
 #This adds (submits) a new score to the leaderboard. Use this 
 #when you want to add a score.
-func add_score(Name, Score):
+func add_score(Name, Score, MetaData = ""):
 	if leaderboard != null:
 		var data = {
 			"Name" : Name,
 			"Score" : Score,
+			"MetaData" : MetaData,
 			"LeaderboardData" : leaderboard,
 		}
 		_request_data("https://themaker6.pythonanywhere.com/new-score", data)
@@ -50,7 +51,8 @@ func add_score(Name, Score):
 #is in the set leaderboard. If it is not, it will not edit and
 #return that it was not in the leaderboard. You can edit the data
 #(being the score), and the name for the score. Set "editing" to
-#"Name" to edit the name of the score.
+#"Name" to edit the name of the score, or to "MetaData" to edit
+#the metadata of the score
 func edit_score(id, data, editing = "Score"):
 	if leaderboard != null:
 		var body = {
@@ -174,7 +176,7 @@ func _request_completed(result, response_code, _headers, body):
 		
 		if json_result == OK:
 			var data = json.data
-			recieved_data.emit(data)
+			received_data.emit(data)
 		else:
 			printerr("Failed to parse JSON: ", json_result.error_string)
 	else:
