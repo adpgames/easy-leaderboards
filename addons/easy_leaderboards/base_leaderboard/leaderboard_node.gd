@@ -22,6 +22,9 @@ extends Panel
 ## The color behind the name and headers of the leaderboard.
 @export var head_color := Color(0.0, 0.525, 1.0, 1.0)
 
+## Size of the head vertically, in pixels. The width of the head is the width of the leaderboard.
+@export var head_size := 90
+
 ## Array that contains scores to display on the leaderboard. Scores should be dictionaries with keys for each header. 
 @export var scores : Array
 
@@ -41,8 +44,8 @@ func _enter_tree():
 	vbox.size_flags_vertical = Control.SIZE_FILL | Control.SIZE_EXPAND
 	var space = HBoxContainer.new()
 	vbox.add_child(space)
-	space.custom_minimum_size.y = 90
 	space.name = "Space"
+	space.owner = vbox
 	
 	var background = ColorRect.new()
 	add_child(background)
@@ -57,13 +60,13 @@ func _process(delta: float) -> void:
 	theme = leaderboard_theme
 	get_child(0).size = size
 	get_child(1).color = head_color
-	get_child(1).size = Vector2(size.x, 90)
+	get_child(1).size = Vector2(size.x, head_size)
 	get_child(2).size = Vector2(size.x, 49)
 	get_child(2).text = leaderboard_name
 	
 	var header = get_child(3)
 	header.size.x = size.x
-	header.position.y = 53
+	header.position.y = head_size - 37
 	
 	for child in header.get_children():
 		child.queue_free()
@@ -81,6 +84,8 @@ func _process(delta: float) -> void:
 	for child in vbox.get_children():
 		if child.name != "Space":
 			child.queue_free()
+		else:
+			child.custom_minimum_size.y = head_size
 	
 	var i = 1
 	for score in scores:
