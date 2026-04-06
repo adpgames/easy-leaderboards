@@ -8,7 +8,7 @@ With the custom node, you just add it to the scene and set scores when you recei
 
 
 # How to use:
-In the files, there is a demo scene. Instructions on how to get started are on the [wiki page of this repoitory](https://github.com/adpgames/easy-leaderboards/wiki).
+In the files, there is a demo scene. Instructions on how to get started are on the [wiki page in github of this addon](https://github.com/adpgames/easy-leaderboards/wiki).
 
 Or, here are other instructions:
 
