@@ -24,3 +24,5 @@ You're all set up! Now, whenever you want to add a new score, you can just call 
 Whenever you'd like to get scores from a leaderboard, make sure a leaderboard is set, and a function is connected to `Leaderboard.received_data`. Then call `Leaderboard.get_scores()`, and in the function connected to the signal "received_data", set the scores value of the BaseLeaderboard node to the list in th variable "data" that was sent in the signal.
 
 And that's it! There are more functions and comments on how to use them in the addon as well. Check the wiki pages on this repository for more in-depth of what things do and how to use them.
+
+If you feel like it, I would love to hear your feedback on the General tab on this repository!
